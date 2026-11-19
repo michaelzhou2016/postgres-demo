@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.FumoPckgWdtStatMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.FumoPckgWdtStat">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="VER_ID" jdbcType="VARCHAR" property="verId" />
+    <result column="BRAND" jdbcType="VARCHAR" property="brand" />
+    <result column="PCKG_NM" jdbcType="VARCHAR" property="pckgNm" />
+    <result column="VER_ALIAS" jdbcType="VARCHAR" property="verAlias" />
+    <result column="PCKG_ST" jdbcType="VARCHAR" property="pckgSt" />
+    <result column="TGT_VER" jdbcType="VARCHAR" property="tgtVer" />
+    <result column="MS_TYPE" jdbcType="VARCHAR" property="msType" />
+    <result column="SW_CNT" jdbcType="INTEGER" property="swCnt" />
+    <result column="SW_SZ" jdbcType="VARCHAR" property="swSz" />
+    <result column="DV_CNT" jdbcType="INTEGER" property="dvCnt" />
+    <result column="WDT_ST" jdbcType="VARCHAR" property="wdtSt" />
+    <result column="CREATED_AT" jdbcType="DATE" property="createdAt" />
+    <result column="LINK_YN" jdbcType="VARCHAR" property="linkYn" />
+    <result column="LINK_TIME" jdbcType="TIMESTAMP" property="linkTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    "ID", "VER_ID", "BRAND", "PCKG_NM", "VER_ALIAS", "PCKG_ST", "TGT_VER", "MS_TYPE", 
+    "SW_CNT", "SW_SZ", "DV_CNT", "WDT_ST", "CREATED_AT", "LINK_YN", "LINK_TIME"
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from "fumo_pckg_wdt_stat"
+    where "ID" = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from "fumo_pckg_wdt_stat"
+  </select>
+  <select id="selectList" resultType="hMap">
+    select
+    <include refid="Base_Column_List" />
+    from "fumo_pckg_wdt_stat"
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from "fumo_pckg_wdt_stat"
+    where "ID" = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.model.FumoPckgWdtStat">
+    insert into "fumo_pckg_wdt_stat" ("ID", "VER_ID", "BRAND", 
+      "PCKG_NM", "VER_ALIAS", "PCKG_ST", 
+      "TGT_VER", "MS_TYPE", "SW_CNT", 
+      "SW_SZ", "DV_CNT", "WDT_ST", 
+      "CREATED_AT", "LINK_YN", "LINK_TIME"
+      )
+    values (#{id,jdbcType=BIGINT}, #{verId,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{pckgNm,jdbcType=VARCHAR}, #{verAlias,jdbcType=VARCHAR}, #{pckgSt,jdbcType=VARCHAR}, 
+      #{tgtVer,jdbcType=VARCHAR}, #{msType,jdbcType=VARCHAR}, #{swCnt,jdbcType=INTEGER}, 
+      #{swSz,jdbcType=VARCHAR}, #{dvCnt,jdbcType=INTEGER}, #{wdtSt,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=DATE}, #{linkYn,jdbcType=VARCHAR}, #{linkTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.model.FumoPckgWdtStat">
+    insert into "fumo_pckg_wdt_stat"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        "ID",
+      </if>
+      <if test="verId != null">
+        "VER_ID",
+      </if>
+      <if test="brand != null">
+        "BRAND",
+      </if>
+      <if test="pckgNm != null">
+        "PCKG_NM",
+      </if>
+      <if test="verAlias != null">
+        "VER_ALIAS",
+      </if>
+      <if test="pckgSt != null">
+        "PCKG_ST",
+      </if>
+      <if test="tgtVer != null">
+        "TGT_VER",
+      </if>
+      <if test="msType != null">
+        "MS_TYPE",
+      </if>
+      <if test="swCnt != null">
+        "SW_CNT",
+      </if>
+      <if test="swSz != null">
+        "SW_SZ",
+      </if>
+      <if test="dvCnt != null">
+        "DV_CNT",
+      </if>
+      <if test="wdtSt != null">
+        "WDT_ST",
+      </if>
+      <if test="createdAt != null">
+        "CREATED_AT",
+      </if>
+      <if test="linkYn != null">
+        "LINK_YN",
+      </if>
+      <if test="linkTime != null">
+        "LINK_TIME",
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="verId != null">
+        #{verId,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="pckgNm != null">
+        #{pckgNm,jdbcType=VARCHAR},
+      </if>
+      <if test="verAlias != null">
+        #{verAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="pckgSt != null">
+        #{pckgSt,jdbcType=VARCHAR},
+      </if>
+      <if test="tgtVer != null">
+        #{tgtVer,jdbcType=VARCHAR},
+      </if>
+      <if test="msType != null">
+        #{msType,jdbcType=VARCHAR},
+      </if>
+      <if test="swCnt != null">
+        #{swCnt,jdbcType=INTEGER},
+      </if>
+      <if test="swSz != null">
+        #{swSz,jdbcType=VARCHAR},
+      </if>
+      <if test="dvCnt != null">
+        #{dvCnt,jdbcType=INTEGER},
+      </if>
+      <if test="wdtSt != null">
+        #{wdtSt,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=DATE},
+      </if>
+      <if test="linkYn != null">
+        #{linkYn,jdbcType=VARCHAR},
+      </if>
+      <if test="linkTime != null">
+        #{linkTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.model.FumoPckgWdtStat">
+    update "fumo_pckg_wdt_stat"
+    <set>
+      <if test="verId != null">
+        "VER_ID" = #{verId,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        "BRAND" = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="pckgNm != null">
+        "PCKG_NM" = #{pckgNm,jdbcType=VARCHAR},
+      </if>
+      <if test="verAlias != null">
+        "VER_ALIAS" = #{verAlias,jdbcType=VARCHAR},
+      </if>
+      <if test="pckgSt != null">
+        "PCKG_ST" = #{pckgSt,jdbcType=VARCHAR},
+      </if>
+      <if test="tgtVer != null">
+        "TGT_VER" = #{tgtVer,jdbcType=VARCHAR},
+      </if>
+      <if test="msType != null">
+        "MS_TYPE" = #{msType,jdbcType=VARCHAR},
+      </if>
+      <if test="swCnt != null">
+        "SW_CNT" = #{swCnt,jdbcType=INTEGER},
+      </if>
+      <if test="swSz != null">
+        "SW_SZ" = #{swSz,jdbcType=VARCHAR},
+      </if>
+      <if test="dvCnt != null">
+        "DV_CNT" = #{dvCnt,jdbcType=INTEGER},
+      </if>
+      <if test="wdtSt != null">
+        "WDT_ST" = #{wdtSt,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        "CREATED_AT" = #{createdAt,jdbcType=DATE},
+      </if>
+      <if test="linkYn != null">
+        "LINK_YN" = #{linkYn,jdbcType=VARCHAR},
+      </if>
+      <if test="linkTime != null">
+        "LINK_TIME" = #{linkTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where "ID" = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.model.FumoPckgWdtStat">
+    update "fumo_pckg_wdt_stat"
+    set "VER_ID" = #{verId,jdbcType=VARCHAR},
+      "BRAND" = #{brand,jdbcType=VARCHAR},
+      "PCKG_NM" = #{pckgNm,jdbcType=VARCHAR},
+      "VER_ALIAS" = #{verAlias,jdbcType=VARCHAR},
+      "PCKG_ST" = #{pckgSt,jdbcType=VARCHAR},
+      "TGT_VER" = #{tgtVer,jdbcType=VARCHAR},
+      "MS_TYPE" = #{msType,jdbcType=VARCHAR},
+      "SW_CNT" = #{swCnt,jdbcType=INTEGER},
+      "SW_SZ" = #{swSz,jdbcType=VARCHAR},
+      "DV_CNT" = #{dvCnt,jdbcType=INTEGER},
+      "WDT_ST" = #{wdtSt,jdbcType=VARCHAR},
+      "CREATED_AT" = #{createdAt,jdbcType=DATE},
+      "LINK_YN" = #{linkYn,jdbcType=VARCHAR},
+      "LINK_TIME" = #{linkTime,jdbcType=TIMESTAMP}
+    where "ID" = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
